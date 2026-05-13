@@ -95,22 +95,10 @@ const menuItems = [
   },
 ];
 
-/* ----- ギャラリー（編集はここ） ----- */
-const galleryItems = [
-  { src: "images/gallery-01.jpg", alt: "湯気立つ一杯", layout: "tall" },
-  { src: "images/gallery-02.jpg", alt: "香り立つラーメン" },
-  { src: "images/gallery-03.jpg", alt: "店主のこだわり" },
-  { src: "images/shop-exterior.jpg", alt: "桜田の店舗外観" },
-  { src: "images/gallery-04.jpg", alt: "つるもちの中太麺" },
-  { src: "images/gallery-05.jpg", alt: "心和むひととき" },
-  { src: "images/gallery-06.jpg", alt: "サイドメニュー" },
-];
-
 /* =========================================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
   renderMenu();
-  renderGallery();
   renderShopInfo();
   initHeader();
   initHamburger();
@@ -149,22 +137,6 @@ function renderMenu() {
         </article>
       `;
     })
-    .join("");
-}
-
-/* ----- ギャラリー描画 ----- */
-function renderGallery() {
-  const grid = document.getElementById("galleryGrid");
-  if (!grid) return;
-
-  grid.innerHTML = galleryItems
-    .map(
-      (item) => `
-        <a class="gallery-item ${item.layout || ""} fade-in" href="${item.src}" target="_blank" rel="noopener noreferrer" aria-label="${item.alt}を拡大">
-          <img src="${item.src}" alt="${item.alt}" loading="lazy" />
-        </a>
-      `
-    )
     .join("");
 }
 
